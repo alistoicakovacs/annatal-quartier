@@ -1226,8 +1226,16 @@ small {
   border-color: #cfcabd;
 }
 
-.field__input:focus {
+/* Mouse-click focus: suppress outline (browser native), show only border+shadow */
+.field__input:focus:not(:focus-visible) {
   outline: none;
+  background-color: #fff;
+  border-color: var(--c-primary);
+  box-shadow: 0 0 0 3px var(--c-primary-soft);
+}
+
+/* Keyboard focus: keep border+shadow AND let section-19 ring show through */
+.field__input:focus-visible {
   background-color: #fff;
   border-color: var(--c-primary);
   box-shadow: 0 0 0 3px var(--c-primary-soft);
@@ -1800,10 +1808,12 @@ select.field__input {
   box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.35);
 }
 
-/* chips & form controls keep the green ring even within dark sections */
+/* chips & form controls on the dark forest-deep band: double-halo ring
+   dark inner shadow + sage outer ensures visibility on #1E2A20 */
 .warteliste__form-wrap :focus-visible {
-  outline-color: var(--c-primary);
-  box-shadow: none;
+  outline: 2px solid var(--c-secondary);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px var(--c-forest-deep), 0 0 0 6px var(--c-secondary);
 }
 
 @media (prefers-reduced-motion: reduce) {

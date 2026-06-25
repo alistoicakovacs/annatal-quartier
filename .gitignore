@@ -9,6 +9,9 @@
 Thumbs.db
 desktop.ini
 
+# Brainstorming visual-companion working files
+.superpowers/
+
 # Editor
 .vscode/
 .idea/

@@ -471,7 +471,7 @@ small {
 }
 
 .brand__word {
-  height: 15px;
+  height: 18px;
   width: auto;
   filter: brightness(0) invert(1);
   transition: filter 0.3s var(--ease-out);

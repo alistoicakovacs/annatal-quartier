@@ -129,11 +129,6 @@
     var revealEls = document.querySelectorAll('.reveal');
     if (!revealEls.length) return;
 
-    // Yield to the GSAP enhancement layer when it is active: gsap-animations.js
-    // sets `gsap-on` on <html> and owns the reveals, so we no-op here to avoid
-    // double-animating. Without `gsap-on`, behavior is unchanged.
-    if (document.documentElement.classList.contains('gsap-on')) return;
-
     // Reduced motion (or no IntersectionObserver support): reveal everything now.
     if (prefersReducedMotion || typeof IntersectionObserver === 'undefined') {
       revealEls.forEach(function (el) {

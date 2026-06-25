@@ -127,6 +127,7 @@ html {
 
 body {
   background-color: var(--c-bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
   font-family: var(--font-body);
   font-weight: 400;
   color: var(--c-ink);
@@ -1713,32 +1714,12 @@ select.field__input {
 .reveal--stagger > * {
   transition-delay: 0ms;
 }
-.reveal--stagger > *:nth-child(1)  { transition-delay: 60ms; }
-.reveal--stagger > *:nth-child(2)  { transition-delay: 120ms; }
-.reveal--stagger > *:nth-child(3)  { transition-delay: 180ms; }
+.reveal--stagger > *:nth-child(1)  { transition-delay: 40ms; }
+.reveal--stagger > *:nth-child(2)  { transition-delay: 110ms; }
+.reveal--stagger > *:nth-child(3)  { transition-delay: 160ms; }
 .reveal--stagger > *:nth-child(4)  { transition-delay: 240ms; }
-.reveal--stagger > *:nth-child(5)  { transition-delay: 300ms; }
+.reveal--stagger > *:nth-child(5)  { transition-delay: 280ms; }
 .reveal--stagger > *:nth-child(6)  { transition-delay: 360ms; }
-
-/* GSAP enhancement layer — active only when html.gsap-on.
-   No effect when the class is absent (GSAP failed to load or reduced-motion),
-   so the CSS+JS reveal and Ken-Burns above continue to work as before. */
-
-/* GSAP owns entrance motion; it re-hides via its own start states (no FOUC) */
-html.gsap-on .reveal {
-  opacity: 1;
-  transform: none;
-}
-
-/* safeguard: hero content (a .reveal) can never be left hidden mid-tween */
-html.gsap-on .hero__content {
-  opacity: 1;
-}
-
-/* let GSAP solely own the hero image transform (avoid fighting CSS Ken-Burns) */
-html.gsap-on .hero__img {
-  animation: none;
-}
 
 /* =====================================================================
    18. RESPONSIVE

@@ -464,10 +464,9 @@ small {
 
 /* logo: white over the hero (CSS-only invert), full colour when scrolled */
 .brand__icon {
-  height: 38px;
+  display: none; /* full-colour mark, revealed only on the sticky header */
+  height: 34px;
   width: auto;
-  filter: brightness(0) invert(1);
-  transition: filter 0.3s var(--ease-out);
 }
 
 .brand__word {
@@ -534,7 +533,10 @@ small {
   box-shadow: var(--shadow-header);
 }
 
-.site-header.is-scrolled .brand__icon,
+.site-header.is-scrolled .brand__icon {
+  display: inline-block;
+}
+
 .site-header.is-scrolled .brand__word {
   filter: none;
 }

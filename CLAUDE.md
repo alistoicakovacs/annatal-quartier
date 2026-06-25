@@ -34,49 +34,55 @@ imported design or memory.
 - **Form:** front-end demo only for now — validation + "Danke, Warteliste" success state + DSGVO consent checkboxes + honeypot. A clearly-marked hook (`// TODO: backend`) marks where a real backend (Formspree/Netlify/own endpoint w/ double-opt-in) plugs in. No live submissions yet.
 - **Imagery:** curated Unsplash nature photography, hotlinked with optimized params, `loading="lazy"`, descriptive German alt-text. Swap for real Strausberg/Annatal photos later.
 
-## 4. Brand system (Wissensdatei §2 — authoritative)
+## 4. Brand system — Warm Editorial identity
 
-### Palette (CSS variables)
+> Supersedes the prior AI-placeholder type spec (Montserrat/Inter/uppercase); the logo remains the fixed brand anchor.
+
+### Palette (CSS variables — logo-anchored)
 ```css
---c-primary:#4F6B3A;       /* Dunkelgrün — leads: buttons, H2, accents */
---c-primary-dark:#3C5430;  /* hover / depth */
---c-secondary:#8FAE6B;     /* Salbeigrün — secondary surfaces, eyebrows */
---c-sand:#C9B79C;          /* warm accent — sparingly */
---c-water:#5E7585;         /* blue-grey (the stream) — sparing accent/icons */
---c-ink:#2E3A40;           /* anthracite — body text & wordmark */
---c-ink-soft:#55636B;      /* muted text */
---c-bg:#F7F5F0;            /* warm off-white — page background */
---c-surface:#FFFFFF;       /* cards/surfaces */
---c-line:#E5E1D8;          /* hairline dividers */
+--c-paper:        #F7F4EC;  /* page background (warm off-white) */
+--c-surface:      #FFFFFF;  /* cards / surfaces */
+--c-sage-tint:    #EEF1E7;  /* faint sage band — sparing */
+--c-forest:       #243027;  /* deep forest ink / dark sections */
+--c-forest-deep:  #1E2A20;  /* darkest band (footer / waitlist) */
+--c-primary:      #4F6B3A;  /* primary green — buttons, accents */
+--c-primary-dark: #3C5430;  /* hover / depth */
+--c-secondary:    #9CB080;  /* sage — secondary surfaces, eyebrows */
+--c-sand:         #C5AD8D;  /* warm accent — sparingly */
+--c-water:        #53676E;  /* stream blue-grey — sparing accent/icons */
+--c-ink:          #243027;  /* forest / body text */
+--c-ink-soft:     #526054;  /* muted text */
+--c-line:         #E5E0D5;  /* hairline dividers */
+--c-line-soft:    #ECE7DC;  /* faintest hairline (list rows) */
 ```
-Green leads. Sand/blue-grey only as sparing accents. Work large areas light/neutral;
-place colour deliberately. (Logo's own greens — `#53683D`, `#9CB080`, `#C5AD8D`,
-`#53676E` — are close cousins; the variables above lead for UI.)
+Green leads. Sand/blue-grey sparingly. The logo's stream-line is used as faint sand (`--c-sand`) section dividers.
 
 ### Type — two fonts only (Google Fonts)
-- **Montserrat** (headings): 500/600/700, UPPERCASE with wide tracking for H1/H2.
-- **Inter** (body): 400/500/600.
+- **Fraunces** (`--font-head`): display serif, weights 400/500/600, **sentence case** (not uppercase).
+- **Hanken Grotesk** (`--font-body`): sans-serif, weights 400/500/600/700.
 
 | Role | Font | Size desk/mob | Weight | Style | Colour |
 |------|------|---------------|--------|-------|--------|
-| H1 hero | Montserrat | 52/34 | 700 | UPPERCASE, `letter-spacing:.08em`, `line-height:1.1` | ink (on photo: white) |
-| H2 section | Montserrat | 34/26 | 700 | UPPERCASE, `.04em` | primary |
-| H3 | Montserrat | 22/19 | 600 | sentence case | ink |
-| Eyebrow/kicker | Montserrat | 13 | 600 | UPPERCASE, `.12em` | secondary |
-| Lead/intro | Inter | 20/18 | 400 | `line-height:1.5` | ink-soft |
-| Body | Inter | 17/16 | 400 | `line-height:1.6` | ink |
-| Small/legal | Inter | 13 | 400 | `line-height:1.5` | ink-soft |
+| H1 hero | Fraunces | 52/34 | 500 | Sentence case, `line-height:1.1` | forest (on photo: white) |
+| H2 section | Fraunces | 38/28 | 500 | Sentence case | primary |
+| H3 | Fraunces | 24/20 | 500 | Sentence case | forest |
+| Eyebrow/kicker | Hanken Grotesk | 12 | 600 | UPPERCASE, `.1em` tracking | secondary |
+| Lead/intro | Hanken Grotesk | 20/18 | 400 | `line-height:1.6` | ink-soft |
+| Body | Hanken Grotesk | 17/16 | 400 | `line-height:1.7` | ink |
+| Small/legal | Hanken Grotesk | 13 | 400 | `line-height:1.5` | ink-soft |
+| Footer headings | Hanken Grotesk | 12 | 600 | UPPERCASE, `.1em` | secondary |
 
 ### Layout & feel
 - Content max-width ~1140–1180px, centered. Section padding ~96px desktop / 48px mobile.
 - Generous whitespace, rounded corners 8–12px, soft subtle shadows.
-- Header ~76px desktop / 60px mobile, logo ~40px high, off-white bg, **sticky**, gains a soft shadow + blur on scroll; **burger menu on mobile**, CTA stays visible.
+- Header ~76px desktop / 60px mobile, logo ~40px high, paper bg, **sticky**, gains soft shadow + blur on scroll; **burger menu on mobile**, CTA stays visible.
 - Icons: thin line (1.5–2px), nature motifs (leaf, hill, water, house), in dark-green/blue-grey.
+- Motion: single IntersectionObserver/CSS reveal system — GSAP removed.
 - Mobile-first, fast load, optimized images, good Core Web Vitals.
 
 ### Do / Don't
-- **Do:** whitespace · nature photos · calm greens · uppercase tracked headings · clear CTAs.
-- **Don't:** garish colours · >2 fonts · shadow/effect overload · stock photos with no nature link · cluttered layouts.
+- **Do:** whitespace · nature photos · calm greens · Fraunces sentence-case headings · clear CTAs.
+- **Don't:** garish colours · >2 fonts · UPPERCASE on display headings · shadow/effect overload · stock photos with no nature link · cluttered layouts.
 
 ## 5. Page structure (Wissensdatei §10)
 

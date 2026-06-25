@@ -1,0 +1,15 @@
+# Local Claude Code settings (machine-specific)
+.claude/settings.local.json
+
+# Internal briefing / source documents (not part of the published site)
+*.pdf
+
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp

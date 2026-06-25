@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4F6B3A">
+
+  <title>Annatal Quartier Strausberg – Mietwohnungen am Naturschutzgebiet | Warteliste</title>
+  <meta name="description" content="Neue Mietwohnungen (ca. 30–70 m²) im Annatal Quartier in Strausberg — am Naturschutzgebiet, mit eigenem Garten, Balkon/Terrasse, Stellplatz und niedrigen Nebenkosten. Jetzt unverbindlich auf die Warteliste.">
+
+  <link rel="canonical" href="https://annatal-quartier.de/">
+  <meta name="robots" content="index,follow">
+
+  <link rel="icon" type="image/png" href="logos/Annatal-Quartier_Logo.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="Annatal Quartier">
+  <meta property="og:title" content="Annatal Quartier Strausberg – Mietwohnungen am Naturschutzgebiet | Warteliste">
+  <meta property="og:description" content="Neue Mietwohnungen (ca. 30–70 m²) im Annatal Quartier in Strausberg — am Naturschutzgebiet, mit eigenem Garten, Balkon/Terrasse, Stellplatz und niedrigen Nebenkosten. Jetzt unverbindlich auf die Warteliste.">
+  <meta property="og:url" content="https://annatal-quartier.de/">
+  <meta property="og:image" content="https://annatal-quartier.de/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Annatal Quartier Strausberg – Mietwohnungen am Naturschutzgebiet | Warteliste">
+  <meta name="twitter:description" content="Neue Mietwohnungen (ca. 30–70 m²) im Annatal Quartier in Strausberg — am Naturschutzgebiet, mit eigenem Garten, Balkon/Terrasse, Stellplatz und niedrigen Nebenkosten. Jetzt unverbindlich auf die Warteliste.">
+  <meta name="twitter:image" content="https://annatal-quartier.de/og-image.jpg">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://annatal-quartier.de/#website",
+        "url": "https://annatal-quartier.de/",
+        "name": "Annatal Quartier",
+        "description": "Neue Mietwohnungen am Naturschutzgebiet am Annafließ in Strausberg.",
+        "inLanguage": "de-DE"
+      },
+      {
+        "@type": "Residence",
+        "@id": "https://annatal-quartier.de/#residence",
+        "name": "Annatal Quartier",
+        "description": "Neue Mietwohnungen (ca. 30–70 m²) am Naturschutzgebiet am Annafließ in Strausberg — mit eigenem Garten, Balkon oder Terrasse und niedrigen Nebenkosten.",
+        "url": "https://annatal-quartier.de/",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Ernst-Thälmann-Straße",
+          "postalCode": "15344",
+          "addressLocality": "Strausberg",
+          "addressRegion": "Brandenburg",
+          "addressCountry": "DE"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://annatal-quartier.de/#organization",
+        "name": "ET 89 eGbR",
+        "url": "https://annatal-quartier.de/",
+        "email": "vermietung@annatal-quartier.de",
+        "telephone": "+49 (0) 3341 4272935",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Garzauer Chaussee 1a",
+          "postalCode": "15344",
+          "addressLocality": "Strausberg",
+          "addressRegion": "Brandenburg",
+          "addressCountry": "DE"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+  <script src="gsap-animations.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <header class="site-header" data-header>
+    <div class="site-header__inner container">
+      <a class="site-header__brand" href="#top">
+        <img class="brand__logo" src="logos/Annatal-Quartier_Logo.svg" alt="Annatal Quartier" width="170" height="40">
+      </a>
+      <nav class="site-nav" id="siteNav" data-nav aria-label="Hauptnavigation">
+        <a class="site-nav__link" href="#lage">Lage</a>
+        <a class="site-nav__link" href="#wohnungen">Wohnungen</a>
+        <a class="site-nav__link" href="#garten">Garten</a>
+        <a class="site-nav__link" href="#ausstattung">Ausstattung</a>
+        <a class="btn btn--primary site-nav__cta" href="#warteliste">Auf die Warteliste</a>
+      </nav>
+      <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="siteNav" aria-label="Menü öffnen">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero__media">
+        <img class="hero__img" src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=2000&q=80" alt="Blick in den lichten Wald am Naturschutzgebiet am Annafließ" width="2000" height="1333" fetchpriority="high">
+      </div>
+      <div class="hero__overlay"></div>
+      <div class="hero__inner container">
+        <div class="hero__content reveal">
+          <p class="eyebrow eyebrow--light"><span class="eyebrow__line"></span>Strausberg · Die grüne Stadt am See</p>
+          <h1 class="hero__title"><span class="visually-hidden">Annatal Quartier Strausberg — </span>Wohnen am<br>Naturschutzgebiet</h1>
+          <p class="hero__lead">Unverbaubare Ruhe und grandioser Ausblick in den Hanghäusern, ein eigener Garten zu jeder Wohnung — 22 neue Mietwohnungen am Annafließ.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#warteliste">Jetzt auf die Warteliste
+              <svg class="btn__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="#wohnungen">Wohnungen ansehen</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero__badge">
+        <span class="hero__badge-price">ab 15 €/m²*</span>
+        <span class="hero__badge-dot" aria-hidden="true"></span>
+        <span class="hero__badge-date">Bezug vsl. Q2 2028</span>
+      </div>
+      <div class="hero__scroll">
+        <span class="hero__scroll-cue" aria-hidden="true"></span>
+        <span class="hero__scroll-label">Entdecken</span>
+      </div>
+    </section>
+
+    <!-- INTRO + STATS -->
+    <section class="section intro">
+      <div class="container">
+        <div class="intro__grid">
+          <div class="intro__text reveal">
+            <p class="eyebrow">Willkommen im Quartier</p>
+            <h2 class="section-title">Ein ruhiges Zuhause<br>zwischen Hang und Wald</h2>
+            <p class="intro__lead">Am Naturschutzgebiet am Annafließ entsteht in Strausberg ein naturnahes Wohnquartier aus vier weitgehend baugleichen Häusern — drei am Hang, eines gegenüber.</p>
+            <p>Die Häuser am Hang haben das Schutzgebiet im Rücken: unverbaubare Ruhe und, durch den Hang, einen weiten Blick ins Grüne. Jede Wohnung mit eigenem Garten sowie Balkon oder Terrasse — und modernstem Effizienzhausstandard für niedrige Nebenkosten.</p>
+          </div>
+          <div class="intro__stats reveal reveal--stagger">
+            <div class="stat-tile">
+              <span class="stat-tile__num">22</span>
+              <span class="stat-tile__label">Mietwohnungen</span>
+            </div>
+            <div class="stat-tile">
+              <span class="stat-tile__num">30–70<span> m²</span></span>
+              <span class="stat-tile__label">1- bis 3-Zimmer</span>
+            </div>
+            <div class="stat-tile">
+              <span class="stat-tile__num">4</span>
+              <span class="stat-tile__label">Häuser im Quartier</span>
+            </div>
+            <div class="stat-tile stat-tile--accent">
+              <span class="stat-tile__num">8</span>
+              <span class="stat-tile__label">rollstuhlgerecht</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- USPs -->
+    <section class="section usps">
+      <div class="container">
+        <div class="usp-grid reveal--stagger">
+          <article class="usp-card reveal">
+            <div class="usp-card__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+            </div>
+            <h3 class="usp-card__title">Am Naturschutzgebiet</h3>
+            <p class="usp-card__text">Die Hanghäuser mit dem Schutzgebiet im Rücken — unverbaubare Ruhe, dauerhaft grün.</p>
+          </article>
+          <article class="usp-card reveal">
+            <div class="usp-card__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+            </div>
+            <h3 class="usp-card__title">Grandioser Ausblick</h3>
+            <p class="usp-card__text">Durch die Hanglage ein weiter Blick ins Grüne und ein einzigartiges Ambiente.</p>
+          </article>
+          <article class="usp-card reveal">
+            <div class="usp-card__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22v-7"/><path d="M9 8a3 3 0 0 1 6 0c0 2-3 3-3 7"/><path d="M5 12c0-2 1.5-3 3-3"/><path d="M19 12c0-2-1.5-3-3-3"/></svg>
+            </div>
+            <h3 class="usp-card__title">Eigener Garten</h3>
+            <p class="usp-card__text">Jeder Wohnung ist ein privater Mietergarten zur exklusiven Nutzung zugeordnet.</p>
+          </article>
+          <article class="usp-card reveal">
+            <div class="usp-card__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="11" width="18" height="10" rx="1"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3 class="usp-card__title">Balkon oder Terrasse</h3>
+            <p class="usp-card__text">Zu jeder Wohnung — Dachgeschosse mit Traum-Terrasse direkt zur Natur.</p>
+          </article>
+          <article class="usp-card reveal">
+            <div class="usp-card__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2v8"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m8 6 4-4 4 4"/><path d="M16 18a4 4 0 0 0-8 0"/></svg>
+            </div>
+            <h3 class="usp-card__title">Niedrige Nebenkosten</h3>
+            <p class="usp-card__text">Modernster Effizienzhausstandard mit Wärmepumpe und Fußbodenheizung.</p>
+          </article>
+          <article class="usp-card reveal">
+            <div class="usp-card__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="4" r="2"/><path d="M10 6v6h4l3 6"/><path d="M10 12a5 5 0 1 0 4 8"/></svg>
+            </div>
+            <h3 class="usp-card__title">Barrierefrei wohnen</h3>
+            <p class="usp-card__text">Ebenerdige Zuwegung und 8 rollstuhlgerechte Wohnungen im Quartier.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAGE -->
+    <section class="section lage" id="lage">
+      <div class="container">
+        <div class="lage__grid">
+          <div class="lage__media reveal">
+            <div class="lage__map-card">
+              <iframe class="lage__map" src="https://www.openstreetmap.org/export/embed.html?bbox=13.8650%2C52.5680%2C13.9060%2C52.5880&layer=mapnik" title="Karte: Lage in Strausberg-Vorstadt" loading="lazy" width="600" height="450"></iframe>
+            </div>
+            <div class="lage__map-badge">
+              <span class="lage__map-badge-title">Anbindung</span>
+              <span class="lage__map-badge-text">S5 nach Berlin · Tram 500 m</span>
+            </div>
+            <a class="lage__map-link" href="https://www.openstreetmap.org/#map=14/52.5780/13.8855" target="_blank" rel="noopener">Größere Karte anzeigen</a>
+          </div>
+          <div class="lage__content reveal">
+            <p class="eyebrow">Die Lage</p>
+            <h2 class="section-title">Natur vor der Tür,<br>Berlin in Reichweite</h2>
+            <p>Im „Östlichen Villengebiet“ der Strausberger Vorstadt — am Waldrand, am Wasserlauf und am Naturschutzgebiet. Straussee und Herrensee, Wälder und Radwege beginnen direkt nebenan.</p>
+            <div class="distance-list">
+              <div class="distance">
+                <span class="distance__place">Tram (Linie 89)</span>
+                <span class="distance__val">0,5 km · 7 Min</span>
+              </div>
+              <div class="distance">
+                <span class="distance__place">S-Bahn S5 Hegermühle</span>
+                <span class="distance__val">1,1 km · 5 Min Rad</span>
+              </div>
+              <div class="distance">
+                <span class="distance__place">EDEKA / Einkaufen</span>
+                <span class="distance__val">1,0 km · 4 Min Rad</span>
+              </div>
+              <div class="distance">
+                <span class="distance__place">Grundschule am Annatal</span>
+                <span class="distance__val">0,85 km · 12 Min</span>
+              </div>
+              <div class="distance">
+                <span class="distance__place">B1 / Hauptstraße</span>
+                <span class="distance__val">7,1 km</span>
+              </div>
+              <div class="distance">
+                <span class="distance__place">Flughafen BER</span>
+                <span class="distance__val">54 km · 41 Min</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WOHNUNGEN -->
+    <section class="section wohnungen" id="wohnungen">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Die Wohnungen</p>
+          <h2 class="section-title">Durchdachte Grundrisse,<br>jede mit Naturbezug</h2>
+        </div>
+        <div class="home-grid reveal--stagger">
+          <article class="home-card reveal">
+            <div class="home-card__media">
+              <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=800&q=80" alt="Helle Gartengeschoss-Wohnung mit Terrasse und Gartenbezug" width="800" height="600" loading="lazy">
+            </div>
+            <div class="home-card__body">
+              <span class="home-card__size">ca. 30–55 m²</span>
+              <h3 class="home-card__title">Gartengeschoss</h3>
+              <p>Helle, vollwertige Wohnungen mit eigener Terrasse und direktem Gartenbezug am Hang.</p>
+            </div>
+          </article>
+          <article class="home-card reveal">
+            <div class="home-card__media">
+              <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80" alt="Wohnung am Hang mit Balkon und Naturblick" width="800" height="600" loading="lazy">
+            </div>
+            <div class="home-card__body">
+              <span class="home-card__size">ca. 40–70 m²</span>
+              <h3 class="home-card__title">Wohnungen am Hang</h3>
+              <p>Gut geschnittene 1- bis 3-Zimmer-Grundrisse mit Balkon oder Terrasse und Naturblick.</p>
+            </div>
+          </article>
+          <article class="home-card reveal">
+            <div class="home-card__media">
+              <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80" alt="Großzügige Dachgeschoss-Wohnung mit großer Terrasse" width="800" height="600" loading="lazy">
+            </div>
+            <div class="home-card__body">
+              <span class="home-card__size">ab ca. 60 m²</span>
+              <h3 class="home-card__title">Dachgeschoss</h3>
+              <p>Großzügige DG-Wohnung je Haus mit großer Terrasse — direkt aus der Küche ins Grüne.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GARTEN -->
+    <section class="section garten" id="garten">
+      <div class="garten__media">
+        <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=2000&q=80" alt="Terrassierter, grüner Garten" width="2000" height="1333" loading="lazy">
+      </div>
+      <div class="garten__overlay"></div>
+      <div class="garten__inner container">
+        <div class="garten__content reveal">
+          <p class="eyebrow eyebrow--light">Garten &amp; Außenanlagen</p>
+          <h2 class="section-title section-title--light">Ein eigener Garten<br>zu jeder Wohnung</h2>
+          <p>Jeder Wohnung ist eine eigene, terrassierte Gartenparzelle zur exklusiven Nutzung zugeordnet. Hainbuchenhecken trennen die Gärten — grün, gepflegt und privat. Die oberste Terrasse schließt direkt an die Wohnung an.</p>
+          <div class="tag-list">
+            <span class="tag">Terrassierte Gärten</span>
+            <span class="tag">Hainbuchenhecken</span>
+            <span class="tag">Stellplatz-Option</span>
+            <span class="tag">Versickerungsfähiges Pflaster</span>
+            <span class="tag">Naturnahe Begrünung</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUSSTATTUNG -->
+    <section class="section ausstattung" id="ausstattung">
+      <div class="container">
+        <div class="ausstattung__grid">
+          <div class="ausstattung__content reveal">
+            <p class="eyebrow">Ausstattung &amp; Technik</p>
+            <h2 class="section-title">Modern, zeitlos<br>und sparsam</h2>
+            <p>Modernster Effizienzhausstandard senkt die Nebenkosten spürbar. Erneuerbare Wärme über Wärmepumpe, angenehme Flächenheizung — der Komfort, den man nicht sieht, aber spürt.</p>
+            <div class="spec-grid">
+              <div class="spec">
+                <span class="spec__icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg>
+                </span>
+                <span class="spec__label">Effizienzhausstandard</span>
+              </div>
+              <div class="spec">
+                <span class="spec__icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/></svg>
+                </span>
+                <span class="spec__label">Luft-/Wasser-Wärmepumpe</span>
+              </div>
+              <div class="spec">
+                <span class="spec__icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 2v4"/><path d="M12 2v4"/><path d="M16 2v4"/><path d="M5 10h14"/><path d="M6 14c0 2 2 2 2 4M11 14c0 2 2 2 2 4M16 14c0 2 2 2 2 4"/></svg>
+                </span>
+                <span class="spec__label">Fußbodenheizung</span>
+              </div>
+              <div class="spec">
+                <span class="spec__icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4 2.5 5.5"/><circle cx="6" cy="7" r="2"/><path d="M8 7h8a4 4 0 0 1 4 4v3H8z"/><path d="M12 18v2M16 18v2"/></svg>
+                </span>
+                <span class="spec__label">Bodengleiche Duschen</span>
+              </div>
+              <div class="spec">
+                <span class="spec__icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3 2 12h3v8h14v-8h3L12 3z"/></svg>
+                </span>
+                <span class="spec__label">Zeitlose Ausstattung</span>
+              </div>
+              <div class="spec">
+                <span class="spec__icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                </span>
+                <span class="spec__label">Verbrauchszähler je Wohnung</span>
+              </div>
+            </div>
+          </div>
+          <div class="ausstattung__gallery reveal">
+            <img class="ausstattung__img ausstattung__img--tall" src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=900&q=80" alt="Helle, moderne Wohnung mit Tageslicht" width="900" height="1200" loading="lazy">
+            <img class="ausstattung__img" src="https://images.unsplash.com/photo-1556912173-3bb406ef7e77?w=800&q=80" alt="Moderne Küche mit Terrassenaustritt" width="800" height="600" loading="lazy">
+            <img class="ausstattung__img" src="https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800&q=80" alt="Dachterrasse mit Blick ins Grüne" width="800" height="600" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WARTELISTE -->
+    <section class="section warteliste" id="warteliste">
+      <div class="container">
+        <div class="warteliste__grid">
+          <div class="warteliste__intro">
+            <p class="eyebrow eyebrow--light">Warteliste</p>
+            <h2 class="section-title section-title--light">Sichern Sie sich<br>Ihren Platz</h2>
+            <p>Tragen Sie sich unverbindlich ein und nennen Sie uns Ihre Wünsche. Wir melden uns, sobald Wohnungen vergeben werden.</p>
+            <ul class="benefit-list">
+              <li class="benefit">
+                <svg class="benefit__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg>
+                <span>Völlig unverbindlich &amp; kostenlos</span>
+              </li>
+              <li class="benefit">
+                <svg class="benefit__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg>
+                <span>Keine Reservierung, keine Anmietung</span>
+              </li>
+              <li class="benefit">
+                <svg class="benefit__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg>
+                <span>Sie bleiben jederzeit informiert</span>
+              </li>
+            </ul>
+          </div>
+          <div class="warteliste__form-wrap">
+            <div class="form-success" data-form-success hidden>
+              <svg class="form-success__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg>
+              <h3 class="form-success__title">Danke — Sie stehen auf der Warteliste!</h3>
+              <p>Bitte bestätigen Sie noch den Link in unserer E-Mail (Double-Opt-In). Wir melden uns mit den nächsten Schritten.</p>
+            </div>
+            <form class="waitlist-form" id="waitlistForm" data-form novalidate>
+              <input class="visually-hidden" data-hp type="text" name="kontakt_zusatz" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+              <div class="form-row form-row--2">
+                <div class="field">
+                  <label class="field__label" for="vorname">Vorname *</label>
+                  <input class="field__input" type="text" id="vorname" name="vorname" autocomplete="given-name" aria-describedby="vorname-error" required>
+                  <span class="field__error" id="vorname-error" aria-live="polite"></span>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="nachname">Nachname *</label>
+                  <input class="field__input" type="text" id="nachname" name="nachname" autocomplete="family-name" aria-describedby="nachname-error" required>
+                  <span class="field__error" id="nachname-error" aria-live="polite"></span>
+                </div>
+              </div>
+
+              <div class="form-row form-row--2">
+                <div class="field">
+                  <label class="field__label" for="email">E-Mail *</label>
+                  <input class="field__input" type="email" id="email" name="email" autocomplete="email" aria-describedby="email-error" required>
+                  <span class="field__error" id="email-error" aria-live="polite"></span>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="telefon">Telefon</label>
+                  <input class="field__input" type="tel" id="telefon" name="telefon" autocomplete="tel" aria-describedby="telefon-error">
+                  <span class="field__error" id="telefon-error" aria-live="polite"></span>
+                </div>
+              </div>
+
+              <fieldset class="field field--chips">
+                <legend class="field__label">Gewünschte Wohnungsgröße *</legend>
+                <div class="chip-group" data-chip-group="size" role="group" aria-describedby="size-error">
+                  <button class="chip" type="button" data-chip aria-pressed="false" value="ca. 30–40 m²">ca. 30–40 m²</button>
+                  <button class="chip" type="button" data-chip aria-pressed="false" value="ca. 40–55 m²">ca. 40–55 m²</button>
+                  <button class="chip" type="button" data-chip aria-pressed="false" value="ca. 55–70 m²">ca. 55–70 m²</button>
+                </div>
+                <span class="field__error" id="size-error" aria-live="polite"></span>
+              </fieldset>
+
+              <fieldset class="field field--chips">
+                <legend class="field__label">Zimmeranzahl</legend>
+                <div class="chip-group" data-chip-group="zimmer" data-single>
+                  <button class="chip" type="button" data-chip aria-pressed="false" value="1">1</button>
+                  <button class="chip" type="button" data-chip aria-pressed="false" value="2">2</button>
+                  <button class="chip" type="button" data-chip aria-pressed="false" value="3">3</button>
+                </div>
+              </fieldset>
+
+              <fieldset class="field field--chips">
+                <legend class="field__label">Ausstattungswünsche</legend>
+                <div class="chip-group" data-chip-group="features">
+                  <button class="chip" type="button" data-chip aria-pressed="false" value="Balkon">Balkon</button>
+                  <button class="chip" type="button" data-chip aria-pressed="false" value="Terrasse">Terrasse</button>
+                  <button class="chip" type="button" data-chip aria-pressed="false" value="DG mit Naturblick">DG mit Naturblick</button>
+                  <button class="chip" type="button" data-chip aria-pressed="false" value="Individualgarten">Individualgarten</button>
+                  <button class="chip" type="button" data-chip aria-pressed="false" value="Stellplatz">Stellplatz</button>
+                  <button class="chip" type="button" data-chip aria-pressed="false" value="rollstuhlgerecht">rollstuhlgerecht</button>
+                </div>
+              </fieldset>
+
+              <div class="form-row form-row--2">
+                <div class="field">
+                  <label class="field__label" for="einzug">Einzugszeitraum</label>
+                  <select class="field__input" id="einzug" name="einzug">
+                    <option value="So früh wie möglich">So früh wie möglich</option>
+                    <option value="2027">2027</option>
+                    <option value="2028">2028</option>
+                    <option value="2029 oder später">2029 oder später</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="personen">Personen im Haushalt</label>
+                  <input class="field__input" type="number" id="personen" name="personen" min="1">
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="nachricht">Nachricht</label>
+                <textarea class="field__input" id="nachricht" name="nachricht" rows="4" placeholder="Ihre Wünsche, Fragen oder Anmerkungen…"></textarea>
+              </div>
+
+              <label class="checkbox">
+                <input type="checkbox" name="datenschutz" required>
+                <span>Ich willige ein, dass meine Daten zur Bearbeitung der Warteliste-Anfrage verarbeitet werden. <a href="datenschutz.html">Datenschutzerklärung</a> *</span>
+              </label>
+              <label class="checkbox">
+                <input type="checkbox" name="updates">
+                <span>Ich möchte Updates zum Projekt per E-Mail erhalten (optional).</span>
+              </label>
+
+              <button class="btn btn--primary btn--block" type="submit">Unverbindlich eintragen</button>
+              <p class="form-note">Die Eintragung ist unverbindlich und stellt keine Reservierung oder Anmietung dar.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq">
+      <div class="container container--narrow">
+        <div class="section-head section-head--center reveal">
+          <p class="eyebrow">Fragen &amp; Antworten</p>
+          <h2 class="section-title">Gut zu wissen</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item reveal">
+            <button class="faq-item__q" data-faq-toggle aria-expanded="false" aria-controls="faq-1">
+              <span>Wann ist der Bezug geplant?</span>
+              <span class="faq-item__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-item__a" id="faq-1" data-faq-panel hidden>
+              <p>Die Fertigstellung ist voraussichtlich für das 2. Quartal 2028 vorgesehen. Es handelt sich um eine Planungsangabe ohne verbindliche Terminzusage.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-item__q" data-faq-toggle aria-expanded="false" aria-controls="faq-2">
+              <span>Wie funktioniert die Warteliste?</span>
+              <span class="faq-item__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-item__a" id="faq-2" data-faq-panel hidden>
+              <p>Sie tragen sich unverbindlich mit Ihren Wünschen ein und bestätigen Ihre E-Mail (Double-Opt-In). Sobald Wohnungen vergeben werden, melden wir uns bei Ihnen.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-item__q" data-faq-toggle aria-expanded="false" aria-controls="faq-3">
+              <span>Was kostet die Vormerkung?</span>
+              <span class="faq-item__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-item__a" id="faq-3" data-faq-panel hidden>
+              <p>Nichts. Die Eintragung ist völlig kostenlos und unverbindlich — sie begründet keine Reservierung und kein Mietverhältnis.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-item__q" data-faq-toggle aria-expanded="false" aria-controls="faq-4">
+              <span>Sind die Wohnungen barrierefrei?</span>
+              <span class="faq-item__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-item__a" id="faq-4" data-faq-panel hidden>
+              <p>Im Quartier sind 8 rollstuhlgerechte Wohnungen geplant, erschlossen über eine barrierefreie, ebenerdige Zuwegung über den Hang.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__top">
+        <div class="site-footer__brand">
+          <img class="site-footer__logo" src="logos/Annatal-Quartier_Logo_White.svg" alt="Annatal Quartier" width="170" height="40">
+          <p>Neue Mietwohnungen am Naturschutzgebiet am Annafließ in Strausberg — der grünen Stadt am See.</p>
+        </div>
+        <div class="site-footer__col">
+          <h2 class="site-footer__heading">Kontakt</h2>
+          <address>
+            <a href="mailto:vermietung@annatal-quartier.de">vermietung@annatal-quartier.de</a><br>
+            <a href="tel:+4933414272935">+49 (0) 3341 4272935</a><br>
+            Ernst-Thälmann-Straße<br>
+            15344 Strausberg
+          </address>
+        </div>
+        <div class="site-footer__col">
+          <h2 class="site-footer__heading">Navigation</h2>
+          <ul class="site-footer__nav">
+            <li><a href="#lage">Lage</a></li>
+            <li><a href="#wohnungen">Wohnungen</a></li>
+            <li><a href="#garten">Garten</a></li>
+            <li><a href="#warteliste">Warteliste</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <p>© 2026 ET 89 eGbR · Garzauer Chaussee 1a, 15344 Strausberg</p>
+        <p class="site-footer__legal-links">
+          <a href="impressum.html">Impressum</a> ·
+          <a href="datenschutz.html">Datenschutz</a>
+        </p>
+      </div>
+      <p class="site-footer__disclaimer">* Nettokaltmiete zzgl. Nebenkosten. Alle Angaben sind unverbindlich und dienen der allgemeinen Information. Änderungen, Irrtümer und Abweichungen (z. B. Flächen, Grundrisse, Ausstattung, Mietpreise, Fertigstellung) vorbehalten. Die Eintragung in die Warteliste begründet keinen Anspruch auf Anmietung, keine Reservierung und kein Mietverhältnis.</p>
+    </div>
+  </footer>
+</body>
+</html>

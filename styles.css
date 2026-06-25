@@ -756,112 +756,28 @@ small {
   margin-bottom: 0;
 }
 
-.intro__stats {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: clamp(14px, 1.6vw, 20px);
+.intro__stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; }
+.stat { padding: 22px 24px 14px; border-top: 1px solid var(--c-line); }
+.stat:nth-child(odd) { border-right: 1px solid var(--c-line); }
+.stat__num {
+  display: block; font-family: var(--font-head); font-weight: 500;
+  font-size: clamp(2.2rem, 1.6rem + 2.4vw, 2.75rem); line-height: 1;
+  color: var(--c-primary); letter-spacing: -0.01em;
 }
-
-.stat-tile {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: clamp(20px, 2.6vw, 30px);
-  background-color: var(--c-surface);
-  border: 1px solid var(--c-line);
-  border-radius: var(--r-md);
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
-}
-
-.stat-tile:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
-}
-
-.stat-tile__num {
-  font-family: var(--font-head);
-  font-weight: 700;
-  font-size: clamp(2rem, 1.4rem + 2.4vw, 2.75rem);
-  line-height: 1;
-  color: var(--c-primary);
-  letter-spacing: 0.01em;
-}
-
-.stat-tile__num span {
-  font-size: 0.5em;
-  font-weight: 600;
-  margin-left: 0.15em;
-  color: inherit;
-}
-
-.stat-tile__label {
-  font-size: 0.9375rem;
-  color: var(--c-ink-soft);
-  line-height: 1.4;
-}
-
-/* accent tile — green bg, white text */
-.stat-tile--accent {
-  background-color: var(--c-primary);
-  border-color: var(--c-primary);
-  box-shadow: var(--shadow-md), 0 14px 30px -16px rgba(79, 107, 58, 0.6);
-}
-
-.stat-tile--accent .stat-tile__num {
-  color: #fff;
-}
-
-.stat-tile--accent .stat-tile__label {
-  color: rgba(255, 255, 255, 0.86);
-}
+.stat__num small { font-size: 0.42em; font-weight: 600; color: var(--c-ink-soft); }
+.stat__label { display: block; margin-top: 10px; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c-ink-soft); }
 
 /* =====================================================================
-   9. USP GRID
+   9. USP LIST (editorial)
    ===================================================================== */
-.usp-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(16px, 1.8vw, 24px);
-}
-
-.usp-card {
-  display: flex;
-  flex-direction: column;
-  padding: clamp(24px, 2.6vw, 34px);
-  background-color: var(--c-surface);
-  border: 1px solid var(--c-line);
-  border-radius: var(--r-md);
-  box-shadow: var(--shadow-xs);
-  transition:
-    transform 0.3s var(--ease-out),
-    box-shadow 0.3s var(--ease-out),
-    border-color 0.3s var(--ease-out);
-}
-
-.usp-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--c-secondary);
-  box-shadow: var(--shadow-md);
-}
-
-.usp-card__icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
-  margin-bottom: var(--space-5);
-  background-color: var(--c-icon-bg);
-  border-radius: var(--r-md);
-  color: var(--c-primary);
-  transition: background-color 0.3s var(--ease-out), color 0.3s var(--ease-out);
-}
-
-.usp-card:hover .usp-card__icon {
-  background-color: var(--c-primary);
-  color: #fff;
-}
+.usp-layout { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(32px, 5vw, 64px); align-items: start; }
+.usp-list { display: flex; flex-direction: column; }
+.usp { display: grid; grid-template-columns: 40px 1fr; gap: 20px; padding: 24px 0; border-top: 1px solid var(--c-line-soft); }
+.usp:first-child { border-top: 0; }
+.usp__icon { color: var(--c-primary); width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; }
+.usp__icon svg { width: 24px; height: 24px; }
+.usp__body p { color: var(--c-ink-soft); margin-top: 4px; }
+@media (max-width: 768px) { .usp-layout { grid-template-columns: 1fr; gap: 28px; } }
 
 .usp-card__title {
   margin-bottom: var(--space-2);
@@ -1701,13 +1617,6 @@ select.field__input {
 /* =====================================================================
    18. RESPONSIVE
    ===================================================================== */
-
-/* --- ≤1024px: ease grid density --- */
-@media (max-width: 1024px) {
-  .usp-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 
 /* --- ≤960px: warteliste stacks, sticky off --- */
 @media (max-width: 960px) {

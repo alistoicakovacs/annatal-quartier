@@ -464,15 +464,16 @@ small {
 
 /* logo: white over the hero (CSS-only invert), full colour when scrolled */
 .brand__icon {
-  display: none; /* full-colour mark, revealed only on the sticky header */
   height: 34px;
   width: auto;
+  filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.35));
+  transition: filter 0.3s var(--ease-out);
 }
 
 .brand__word {
   height: 18px;
   width: auto;
-  filter: brightness(0) invert(1);
+  filter: brightness(0) invert(1) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
   transition: filter 0.3s var(--ease-out);
 }
 
@@ -533,10 +534,7 @@ small {
   box-shadow: var(--shadow-header);
 }
 
-.site-header.is-scrolled .brand__icon {
-  display: inline-block;
-}
-
+.site-header.is-scrolled .brand__icon,
 .site-header.is-scrolled .brand__word {
   filter: none;
 }
@@ -645,6 +643,7 @@ small {
   inset: 0;
   z-index: -1;
   background:
+    linear-gradient(to bottom, rgba(22,30,23,0.36) 0%, rgba(22,30,23,0) 16%),
     linear-gradient(to top right, rgba(22,30,23,0.82) 0%, rgba(22,30,23,0.42) 32%, rgba(22,30,23,0) 62%),
     linear-gradient(to top, rgba(22,30,23,0.5), rgba(22,30,23,0) 38%);
 }

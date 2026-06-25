@@ -192,7 +192,7 @@ ul {
 .hero__title {
   font-family: var(--font-head);
   font-weight: 500;
-  font-size: clamp(2.5rem, 1.6rem + 4vw, 4rem);
+  font-size: clamp(2.4rem, 1.5rem + 3vw, 3.4rem);
   line-height: 1.06;
   letter-spacing: -0.012em;
   text-transform: none;
@@ -458,12 +458,20 @@ small {
 .site-header__brand {
   display: inline-flex;
   align-items: center;
+  gap: 11px;
   flex: 0 0 auto;
 }
 
 /* logo: white over the hero (CSS-only invert), full colour when scrolled */
-.brand__logo {
-  height: 40px;
+.brand__icon {
+  height: 38px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s var(--ease-out);
+}
+
+.brand__word {
+  height: 15px;
   width: auto;
   filter: brightness(0) invert(1);
   transition: filter 0.3s var(--ease-out);
@@ -526,7 +534,8 @@ small {
   box-shadow: var(--shadow-header);
 }
 
-.site-header.is-scrolled .brand__logo {
+.site-header.is-scrolled .brand__icon,
+.site-header.is-scrolled .brand__word {
   filter: none;
 }
 
@@ -634,8 +643,8 @@ small {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(105deg, rgba(20,28,22,0.66) 0%, rgba(20,28,22,0.28) 44%, rgba(20,28,22,0) 76%),
-    linear-gradient(to top, rgba(20,28,22,0.52), rgba(20,28,22,0) 46%);
+    linear-gradient(to top right, rgba(22,30,23,0.82) 0%, rgba(22,30,23,0.42) 32%, rgba(22,30,23,0) 62%),
+    linear-gradient(to top, rgba(22,30,23,0.5), rgba(22,30,23,0) 38%);
 }
 
 .hero__inner {
@@ -700,16 +709,6 @@ small {
   font-weight: 500;
 }
 
-/* stream-line motif along the hero foot — the signature */
-.hero__stream {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 2;
-  height: 38px;
-  color: var(--c-sand);
-}
 
 /* =====================================================================
    8. INTRO + STAT TILES

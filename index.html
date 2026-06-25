@@ -488,10 +488,14 @@
                 <textarea class="field__input" id="nachricht" name="nachricht" rows="4" placeholder="Ihre Wünsche, Fragen oder Anmerkungen…"></textarea>
               </div>
 
-              <label class="checkbox">
-                <input type="checkbox" name="datenschutz" required>
-                <span>Ich willige ein, dass meine Daten zur Bearbeitung der Warteliste-Anfrage verarbeitet werden. <a href="datenschutz.html">Datenschutzerklärung</a> *</span>
-              </label>
+              <div class="field field--checkbox">
+                <label class="checkbox">
+                  <input type="checkbox" name="datenschutz" id="datenschutz" required
+                    aria-describedby="datenschutz-error">
+                  <span>Ich willige ein, dass meine Daten zur Bearbeitung der Warteliste-Anfrage verarbeitet werden. <a href="datenschutz.html">Datenschutzerklärung</a> *</span>
+                </label>
+                <span class="field__error" id="datenschutz-error" aria-live="polite"></span>
+              </div>
               <label class="checkbox">
                 <input type="checkbox" name="updates">
                 <span>Ich möchte Updates zum Projekt per E-Mail erhalten (optional).</span>

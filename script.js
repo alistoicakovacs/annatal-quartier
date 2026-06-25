@@ -271,7 +271,7 @@
     var MSG_REQUIRED = 'Bitte ausfüllen';
     var MSG_EMAIL = 'Bitte eine gültige E-Mail-Adresse eingeben';
     var MSG_SIZE = 'Bitte mindestens eine Wohnungsgröße wählen';
-    var MSG_PRIVACY = 'Bitte bestätigen Sie den Datenschutz';
+    var MSG_PRIVACY = 'Bitte stimmen Sie der Datenschutzerklärung zu.';
 
     var honeypot = form.querySelector('[data-hp]');
     var success = document.querySelector('[data-form-success]');
@@ -286,6 +286,7 @@
     var nachnameError = document.getElementById('nachname-error');
     var emailError = document.getElementById('email-error');
     var sizeError = document.getElementById('size-error');
+    var datenschutzError = document.getElementById('datenschutz-error');
 
     // --- Live clearing: once a field becomes valid, drop its error state. ---
     function wireLiveClear(field, errorEl, validator) {
@@ -305,9 +306,8 @@
     wireLiveClear(email, emailError, function () {
       return !!(email && EMAIL_RE.test(email.value.trim()));
     });
-    // Datenschutz has no dedicated .field__error span in the DOM; clearing its
-    // aria-invalid on change is still correct and harmless.
-    wireLiveClear(datenschutz, null, function () {
+    // Datenschutz: clear error live when the box is checked.
+    wireLiveClear(datenschutz, datenschutzError, function () {
       return !!(datenschutz && datenschutz.checked);
     });
 
@@ -348,12 +348,7 @@
       }
 
       // Datenschutz consent checkbox (required).
-      if (datenschutz && !datenschutz.checked) {
-        datenschutz.setAttribute('aria-invalid', 'true');
-        if (!firstInvalid) firstInvalid = datenschutz;
-      } else if (datenschutz) {
-        datenschutz.removeAttribute('aria-invalid');
-      }
+      check(!!(datenschutz && datenschutz.checked), datenschutz, datenschutzError, MSG_PRIVACY);
 
       return firstInvalid; // null → everything valid
     }

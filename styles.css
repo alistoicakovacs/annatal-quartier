@@ -28,30 +28,37 @@
    1. DESIGN TOKENS
    ===================================================================== */
 :root {
-  /* Palette — Wissensdatei §4 (authoritative) */
-  --c-primary: #4F6B3A;        /* Dunkelgrün — buttons, H2, accents */
+  /* Palette — Warm Editorial, anchored to the logo */
+  --c-primary: #4F6B3A;        /* green lead — CTAs, links, numerals, accents */
   --c-primary-dark: #3C5430;   /* hover / depth */
-  --c-secondary: #8FAE6B;      /* Salbeigrün — secondary surfaces, eyebrows */
-  --c-sand: #C9B79C;           /* warm accent — sparingly */
-  --c-water: #5E7585;          /* blue-grey (the stream) — sparing accent */
-  --c-ink: #2E3A40;            /* anthracite — body text & wordmark */
-  --c-ink-soft: #55636B;       /* muted text */
-  --c-bg: #F7F5F0;             /* warm off-white — page background */
-  --c-surface: #FFFFFF;        /* cards / surfaces */
-  --c-line: #E5E1D8;           /* hairline dividers */
+  --c-secondary: #9CB080;      /* sage (logo) — secondary accent */
+  --c-sand: #C5AD8D;           /* logo sand — warm accent, stream motif */
+  --c-water: #53676E;          /* logo blue-grey — the stream */
+  --c-ink: #243027;            /* deep forest — body text */
+  --c-ink-soft: #526054;       /* muted greenish-grey text */
+  --c-bg: #F7F4EC;             /* warm paper — page background */
+  --c-surface: #FFFFFF;        /* white tonal band / form card */
+  --c-line: #E5E0D5;           /* warm hairline */
+
+  /* New identity tokens */
+  --c-paper: #F7F4EC;          /* = bg (semantic alias) */
+  --c-sage-tint: #EEF1E7;      /* faint sage band (sparing) */
+  --c-forest: #243027;         /* deep forest ink / dark sections */
+  --c-forest-deep: #1E2A20;    /* darkest band (footer / waitlist) */
+  --c-line-soft: #ECE7DC;      /* faintest hairline (list rows) */
 
   /* Derived / support colours */
-  --c-icon-bg: #EEF1E7;        /* soft sage tint behind USP/spec icons */
+  --c-icon-bg: #EAEFE0;        /* soft sage tint behind icons */
   --c-primary-soft: rgba(79, 107, 58, 0.10);
   --c-on-dark: #FFFFFF;
-  --c-on-dark-soft: rgba(255, 255, 255, 0.78);
+  --c-on-dark-soft: rgba(255, 255, 255, 0.80);
   --c-on-dark-faint: rgba(255, 255, 255, 0.58);
   --c-error: #B23A2E;
   --c-error-soft: #C24A3D;
 
   /* Fonts */
-  --font-head: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-head: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
   /* Layout */
   --maxw: 1180px;
@@ -66,12 +73,12 @@
   --r-lg: 16px;
   --r-pill: 999px;
 
-  /* Shadows — soft, layered, subtle */
-  --shadow-xs: 0 1px 2px rgba(46, 58, 64, 0.05);
-  --shadow-sm: 0 2px 8px rgba(46, 58, 64, 0.06);
-  --shadow-md: 0 10px 30px -12px rgba(46, 58, 64, 0.18), 0 2px 8px rgba(46, 58, 64, 0.05);
-  --shadow-lg: 0 24px 60px -22px rgba(46, 58, 64, 0.28), 0 6px 16px rgba(46, 58, 64, 0.08);
-  --shadow-header: 0 6px 24px -14px rgba(46, 58, 64, 0.30);
+  /* Shadows — minimal; only the form card reads as raised */
+  --shadow-xs: 0 1px 2px rgba(36, 48, 39, 0.04);
+  --shadow-sm: 0 2px 6px rgba(36, 48, 39, 0.05);
+  --shadow-md: 0 8px 24px -14px rgba(36, 48, 39, 0.16);
+  --shadow-lg: 0 20px 48px -24px rgba(36, 48, 39, 0.22);
+  --shadow-header: 0 6px 22px -16px rgba(36, 48, 39, 0.26);
 
   /* Spacing scale */
   --space-1: 4px;
@@ -183,26 +190,24 @@ ul {
 /* H1 hero — 52/34, 700, UPPERCASE, .08em, lh 1.1 */
 .hero__title {
   font-family: var(--font-head);
-  font-weight: 700;
-  font-size: clamp(2.125rem, 1.2rem + 3.9vw, 3.25rem); /* 34 → 52 */
-  line-height: 1.1;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-weight: 500;
+  font-size: clamp(2.5rem, 1.6rem + 4vw, 4rem);
+  line-height: 1.06;
+  letter-spacing: -0.012em;
+  text-transform: none;
   color: var(--c-ink);
-  /* graceful fallback only: hyphenate at a real syllable boundary if ever
-     needed (lang="de"); no forced character breaks, so the word stays intact */
   hyphens: auto;
 }
 
 /* H2 section — 34/26, 700, UPPERCASE, .04em */
 .section-title {
   font-family: var(--font-head);
-  font-weight: 700;
-  font-size: clamp(1.625rem, 1.15rem + 2vw, 2.125rem); /* 26 → 34 */
-  line-height: 1.18;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--c-primary);
+  font-weight: 500;
+  font-size: clamp(1.9rem, 1.3rem + 2.4vw, 2.6rem);
+  line-height: 1.1;
+  letter-spacing: -0.012em;
+  text-transform: none;
+  color: var(--c-forest);
 }
 
 .section-title--light {
@@ -212,13 +217,13 @@ ul {
 /* H3 — 22/19, 600, sentence case */
 .usp-card__title,
 .home-card__title,
-.form-success__title,
-.site-footer__heading {
+.form-success__title {
   font-family: var(--font-head);
-  font-weight: 600;
-  font-size: clamp(1.1875rem, 1.1rem + 0.3vw, 1.375rem); /* 19 → 22 */
-  line-height: 1.3;
-  letter-spacing: 0.005em;
+  font-weight: 500;
+  font-size: clamp(1.2rem, 1.05rem + 0.5vw, 1.4rem);
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+  text-transform: none;
   color: var(--c-ink);
 }
 
@@ -227,13 +232,13 @@ ul {
   display: flex;
   align-items: center;
   gap: 0.7em;
-  font-family: var(--font-head);
+  font-family: var(--font-body);
   font-weight: 600;
-  font-size: 0.8125rem; /* 13 */
+  font-size: 0.72rem;
   line-height: 1.4;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--c-secondary);
+  color: var(--c-primary);
   margin-bottom: var(--space-4);
 }
 
@@ -1899,13 +1904,6 @@ html.gsap-on .hero__img {
 @media (max-width: 430px) {
   .intro__stats {
     grid-template-columns: 1fr 1fr;
-  }
-
-  /* size the H1 so "NATURSCHUTZGEBIET" sits unbroken on one line down to ~320px phones */
-  .hero__title {
-    font-size: 1.375rem; /* ~22px */
-    letter-spacing: 0.02em;
-    line-height: 1.12;
   }
 }
 

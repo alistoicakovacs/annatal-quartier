@@ -369,7 +369,7 @@ small {
   font-weight: 600;
   font-size: 0.9rem;
   line-height: 1;
-  letter-spacing: 0.01em;
+  letter-spacing: 0;
   text-transform: none;
   border-radius: var(--r-sm);
   border: 1px solid transparent;
@@ -943,7 +943,7 @@ small {
   height: 64px;
   object-fit: cover;
   border-radius: 6px;
-  filter: saturate(0.92);
+  filter: saturate(0.95);
 }
 
 .home-card__size {

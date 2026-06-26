@@ -274,7 +274,7 @@
             <article class="home">
               <img class="home__thumb" src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=800&q=80" alt="Helle Gartengeschoss-Wohnung mit Terrasse und Gartenbezug" width="320" height="240" loading="lazy">
               <div class="home__body">
-                <span class="home-card__size">ca. 30–55 m²</span>
+                <span class="home-card__size">ca. 30–70 m²</span>
                 <h3 class="home-card__title">Gartengeschoss</h3>
                 <p>Helle, vollwertige Wohnungen mit eigener Terrasse und direktem Gartenbezug am Hang.</p>
               </div>
@@ -282,17 +282,17 @@
             <article class="home">
               <img class="home__thumb" src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80" alt="Wohnung am Hang mit Balkon und Naturblick" width="320" height="240" loading="lazy">
               <div class="home__body">
-                <span class="home-card__size">ca. 40–70 m²</span>
+                <span class="home-card__size">ca. 55 m²</span>
                 <h3 class="home-card__title">Wohnungen am Hang</h3>
-                <p>Gut geschnittene 1- bis 3-Zimmer-Grundrisse mit Balkon oder Terrasse und Naturblick.</p>
+                <p>Gut geschnittene 2-Zimmer-Grundrisse mit Balkon oder Terrasse und Naturblick.</p>
               </div>
             </article>
             <article class="home">
               <img class="home__thumb" src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80" alt="Großzügige Dachgeschoss-Wohnung mit großer Terrasse" width="320" height="240" loading="lazy">
               <div class="home__body">
-                <span class="home-card__size">ab ca. 60 m²</span>
+                <span class="home-card__size">ca. 70 m²</span>
                 <h3 class="home-card__title">Dachgeschoss</h3>
-                <p>Großzügige DG-Wohnung je Haus mit großer Terrasse — direkt aus der Küche ins Grüne.</p>
+                <p>Großzügige 3 Zimmer DG-Wohnung je Haus mit großer Terrasse — direkt aus der Küche ins Grüne.</p>
               </div>
             </article>
           </div>
@@ -430,18 +430,18 @@
                   <span class="field__error" id="email-error" aria-live="polite"></span>
                 </div>
                 <div class="field">
-                  <label class="field__label" for="telefon">Telefon</label>
-                  <input class="field__input" type="tel" id="telefon" name="telefon" autocomplete="tel" aria-describedby="telefon-error">
+                  <label class="field__label" for="telefon">Telefon *</label>
+                  <input class="field__input" type="tel" id="telefon" name="telefon" autocomplete="tel" aria-describedby="telefon-error" required>
                   <span class="field__error" id="telefon-error" aria-live="polite"></span>
                 </div>
               </div>
 
               <fieldset class="field field--chips">
                 <legend class="field__label">Gewünschte Wohnungsgröße *</legend>
-                <div class="chip-group" data-chip-group="size" role="group" aria-describedby="size-error">
-                  <button class="chip" type="button" data-chip aria-pressed="false" value="ca. 30–40 m²">ca. 30–40 m²</button>
-                  <button class="chip" type="button" data-chip aria-pressed="false" value="ca. 40–55 m²">ca. 40–55 m²</button>
-                  <button class="chip" type="button" data-chip aria-pressed="false" value="ca. 55–70 m²">ca. 55–70 m²</button>
+                <div class="chip-group" data-chip-group="size" data-single role="group" aria-describedby="size-error">
+                  <button class="chip" type="button" data-chip data-rooms="1" aria-pressed="false" value="ca. 30 m²">ca. 30 m²</button>
+                  <button class="chip" type="button" data-chip data-rooms="2" aria-pressed="false" value="ca. 55 m²">ca. 55 m²</button>
+                  <button class="chip" type="button" data-chip data-rooms="3" aria-pressed="false" value="ca. 70 m²">ca. 70 m²</button>
                 </div>
                 <span class="field__error" id="size-error" aria-live="polite"></span>
               </fieldset>
@@ -454,6 +454,19 @@
                   <button class="chip" type="button" data-chip aria-pressed="false" value="3">3</button>
                 </div>
               </fieldset>
+
+              <div class="field">
+                <label class="field__label" for="einkommen">Monatliches Haushaltseinkommen *</label>
+                <select class="field__input" id="einkommen" name="einkommen" aria-describedby="einkommen-error" required>
+                  <option value="" disabled selected>Bitte wählen …</option>
+                  <option value="unter 2.000 €">unter 2.000 €</option>
+                  <option value="2.000 – 3.000 €">2.000 – 3.000 €</option>
+                  <option value="3.000 – 4.000 €">3.000 – 4.000 €</option>
+                  <option value="4.000 – 5.000 €">4.000 – 5.000 €</option>
+                  <option value="über 5.000 €">über 5.000 €</option>
+                </select>
+                <span class="field__error" id="einkommen-error" aria-live="polite"></span>
+              </div>
 
               <fieldset class="field field--chips">
                 <legend class="field__label">Ausstattungswünsche</legend>
@@ -469,13 +482,8 @@
 
               <div class="form-row form-row--2">
                 <div class="field">
-                  <label class="field__label" for="einzug">Einzugszeitraum</label>
-                  <select class="field__input" id="einzug" name="einzug">
-                    <option value="So früh wie möglich">So früh wie möglich</option>
-                    <option value="2027">2027</option>
-                    <option value="2028">2028</option>
-                    <option value="2029 oder später">2029 oder später</option>
-                  </select>
+                  <label class="field__label" for="haustiere">Haustiere</label>
+                  <input class="field__input" type="text" id="haustiere" name="haustiere" placeholder="z. B. keine, 1 Hund, 2 Katzen …">
                 </div>
                 <div class="field">
                   <label class="field__label" for="personen">Personen im Haushalt</label>
@@ -492,7 +500,7 @@
                 <label class="checkbox">
                   <input type="checkbox" name="datenschutz" id="datenschutz" required
                     aria-describedby="datenschutz-error">
-                  <span>Ich willige ein, dass meine Daten zur Bearbeitung der Warteliste-Anfrage verarbeitet werden. <a href="datenschutz.html">Datenschutzerklärung</a> *</span>
+                  <span>Ich willige ein, dass meine Daten zur Bearbeitung der Warteliste an die ET 89 eGbR übertragen und dort zu diesem Zweck elektronisch verarbeitet werden. <a href="datenschutz.html">Datenschutzerklärung</a> *</span>
                 </label>
                 <span class="field__error" id="datenschutz-error" aria-live="polite"></span>
               </div>
@@ -572,7 +580,9 @@
           <address>
             <a href="mailto:vermietung@annatal-quartier.de">vermietung@annatal-quartier.de</a><br>
             <a href="tel:+4933414272935">+49 (0) 3341 4272935</a><br>
-            Ernst-Thälmann-Straße<br>
+            Frederik Lippe<br>
+            ET 89 eGbR<br>
+            Garzauer Chaussee 1a<br>
             15344 Strausberg
           </address>
         </div>

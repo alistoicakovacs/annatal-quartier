@@ -1258,6 +1258,11 @@ select.field__input {
   cursor: pointer;
 }
 
+/* placeholder option (disabled, value="") reads muted until a real choice */
+select.field__input:has(option[value=""]:checked) {
+  color: var(--c-ink-soft);
+}
+
 /* invalid state (JS sets aria-invalid) */
 .field__input[aria-invalid="true"] {
   border-color: var(--c-error);
@@ -1335,6 +1340,26 @@ select.field__input {
 .chip[aria-pressed="true"]:hover {
   background-color: var(--c-primary-dark);
   border-color: var(--c-primary-dark);
+}
+
+/* size-driven lock: the matched room stays selected, the others grey out */
+.chip:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.chip:disabled:hover {
+  border-color: var(--c-line);
+  background-color: var(--c-bg);
+}
+
+.chip.is-active:disabled {
+  opacity: 1;
+}
+
+.chip.is-active:disabled:hover {
+  background-color: var(--c-primary);
+  border-color: var(--c-primary);
 }
 
 /* checkboxes */

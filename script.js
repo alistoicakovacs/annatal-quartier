@@ -221,9 +221,10 @@
             chip.setAttribute('aria-pressed', willActivate ? 'true' : 'false');
           }
 
-          // If this is the (required) size group, clearing any active state
-          // beforehand means a selection here can clear its error.
+          // Size group is single-select and linked to Zimmeranzahl: mirror the
+          // chosen size's room count, then (it being required) clear its error.
           if (group.getAttribute('data-chip-group') === 'size') {
+            syncRoomsFromSize();
             clearSizeErrorIfValid();
           }
         });
@@ -243,6 +244,24 @@
   function sizeGroupHasSelection() {
     var group = getSizeGroup();
     return !!(group && group.querySelector('[data-chip].is-active'));
+  }
+
+  // Mirror the (single-select) size choice into the Zimmeranzahl group via each
+  // size chip's data-rooms, then lock the group to it: the matched room stays
+  // selected and the others grey out (disabled, so they can't be clicked). No
+  // active size → unlock the room chips so they can be chosen freely again.
+  function syncRoomsFromSize() {
+    var zimmerGroup = document.querySelector('[data-chip-group="zimmer"]');
+    if (!zimmerGroup) return;
+    var activeSize = document.querySelector('[data-chip-group="size"] [data-chip].is-active');
+    var rooms = activeSize ? activeSize.getAttribute('data-rooms') : null;
+    var locked = rooms !== null; // a size is chosen → its room count is fixed
+    zimmerGroup.querySelectorAll('[data-chip]').forEach(function (chip) {
+      var match = locked && chip.value === rooms;
+      chip.classList.toggle('is-active', match);
+      chip.setAttribute('aria-pressed', match ? 'true' : 'false');
+      chip.disabled = locked;
+    });
   }
 
   function setError(field, errorEl, message) {
@@ -270,7 +289,7 @@
 
     var MSG_REQUIRED = 'Bitte ausfüllen';
     var MSG_EMAIL = 'Bitte eine gültige E-Mail-Adresse eingeben';
-    var MSG_SIZE = 'Bitte mindestens eine Wohnungsgröße wählen';
+    var MSG_SIZE = 'Bitte eine Wohnungsgröße wählen';
     var MSG_PRIVACY = 'Bitte stimmen Sie der Datenschutzerklärung zu.';
 
     var honeypot = form.querySelector('[data-hp]');
@@ -280,11 +299,15 @@
     var vorname = form.querySelector('#vorname');
     var nachname = form.querySelector('#nachname');
     var email = form.querySelector('#email');
+    var telefon = form.querySelector('#telefon');
+    var einkommen = form.querySelector('#einkommen');
     var datenschutz = form.querySelector('input[name="datenschutz"]');
 
     var vornameError = document.getElementById('vorname-error');
     var nachnameError = document.getElementById('nachname-error');
     var emailError = document.getElementById('email-error');
+    var telefonError = document.getElementById('telefon-error');
+    var einkommenError = document.getElementById('einkommen-error');
     var sizeError = document.getElementById('size-error');
     var datenschutzError = document.getElementById('datenschutz-error');
 
@@ -305,6 +328,12 @@
     });
     wireLiveClear(email, emailError, function () {
       return !!(email && EMAIL_RE.test(email.value.trim()));
+    });
+    wireLiveClear(telefon, telefonError, function () {
+      return !!(telefon && telefon.value.trim());
+    });
+    wireLiveClear(einkommen, einkommenError, function () {
+      return !!(einkommen && einkommen.value);
     });
     // Datenschutz: clear error live when the box is checked.
     wireLiveClear(datenschutz, datenschutzError, function () {
@@ -332,6 +361,9 @@
       check(!!emailVal && EMAIL_RE.test(emailVal), email, emailError,
         emailVal ? MSG_EMAIL : MSG_REQUIRED);
 
+      // Telefon (required): non-empty.
+      check(!!(telefon && telefon.value.trim()), telefon, telefonError, MSG_REQUIRED);
+
       // Size chip group (required): at least one active chip.
       var sizeGroup = getSizeGroup();
       if (sizeGroupHasSelection()) {
@@ -346,6 +378,9 @@
           firstInvalid = sizeGroup.querySelector('[data-chip]');
         }
       }
+
+      // Monatliches Haushaltseinkommen (required): a bracket must be chosen.
+      check(!!(einkommen && einkommen.value), einkommen, einkommenError, MSG_REQUIRED);
 
       // Datenschutz consent checkbox (required).
       check(!!(datenschutz && datenschutz.checked), datenschutz, datenschutzError, MSG_PRIVACY);

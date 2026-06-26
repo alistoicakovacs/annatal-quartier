@@ -16,3 +16,6 @@ desktop.ini
 .vscode/
 .idea/
 *.swp
+
+# Server-side mail handler — contains live SMTP credentials, never publish
+sendmail.php

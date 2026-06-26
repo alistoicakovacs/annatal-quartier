@@ -291,9 +291,18 @@
     var MSG_EMAIL = 'Bitte eine gültige E-Mail-Adresse eingeben';
     var MSG_SIZE = 'Bitte eine Wohnungsgröße wählen';
     var MSG_PRIVACY = 'Bitte stimmen Sie der Datenschutzerklärung zu.';
+    var MSG_NETWORK = 'Senden fehlgeschlagen. Bitte versuchen Sie es später erneut ' +
+      'oder schreiben Sie an vermietung@annatal-quartier.de.';
+
+    // Backend endpoint that sends the mail via SMTP (see sendmail.php).
+    // Same-origin path by default; use a full URL if the API lives elsewhere
+    // (then also set $ALLOW_ORIGIN in sendmail.php for CORS).
+    var ENDPOINT = 'sendmail.php';
 
     var honeypot = form.querySelector('[data-hp]');
     var success = document.querySelector('[data-form-success]');
+    var submitBtn = form.querySelector('button[type="submit"]');
+    var formError = document.querySelector('[data-form-error]');
 
     // Required field descriptors (input + its associated .field__error span).
     var vorname = form.querySelector('#vorname');
@@ -411,7 +420,98 @@
       }
     }
 
-    // --- Submit handler ---
+    // --- Collect the payload (chip groups aren't native inputs) ------------
+    function activeChipValues(groupName) {
+      var group = form.querySelector('[data-chip-group="' + groupName + '"]');
+      if (!group) return [];
+      return Array.prototype.map.call(
+        group.querySelectorAll('[data-chip].is-active'),
+        function (chip) { return chip.value || chip.textContent.trim(); }
+      );
+    }
+
+    function collectPayload() {
+      var data = new URLSearchParams();
+      function add(key, val) { data.append(key, val == null ? '' : String(val)); }
+      function fieldVal(sel) {
+        var el = form.querySelector(sel);
+        return el ? el.value.trim() : '';
+      }
+      var updates = form.querySelector('input[name="updates"]');
+
+      add('vorname', vorname ? vorname.value.trim() : '');
+      add('nachname', nachname ? nachname.value.trim() : '');
+      add('email', email ? email.value.trim() : '');
+      add('telefon', telefon ? telefon.value.trim() : '');
+      add('groesse', activeChipValues('size')[0] || '');
+      add('zimmer', activeChipValues('zimmer')[0] || '');
+      add('einkommen', einkommen ? einkommen.value : '');
+      add('ausstattung', activeChipValues('features').join(', '));
+      add('haustiere', fieldVal('#haustiere'));
+      add('personen', fieldVal('#personen'));
+      add('nachricht', fieldVal('#nachricht'));
+      add('datenschutz', datenschutz && datenschutz.checked ? 'ja' : 'nein');
+      add('updates', updates && updates.checked ? 'ja' : 'nein');
+      add('kontakt_zusatz', honeypot ? honeypot.value : '');
+      return data;
+    }
+
+    // --- Submit UI state ---------------------------------------------------
+    function setSubmitting(on) {
+      if (!submitBtn) return;
+      submitBtn.disabled = on;
+      if (on) {
+        if (!submitBtn.dataset.label) submitBtn.dataset.label = submitBtn.textContent;
+        submitBtn.textContent = 'Wird gesendet …';
+      } else if (submitBtn.dataset.label) {
+        submitBtn.textContent = submitBtn.dataset.label;
+      }
+    }
+
+    function showFormError(message) {
+      if (formError) formError.textContent = message || '';
+    }
+
+    // --- Send to the SMTP endpoint -----------------------------------------
+    function sendForm() {
+      showFormError('');
+
+      if (typeof window.fetch !== 'function') {
+        showFormError(MSG_NETWORK);
+        return;
+      }
+
+      setSubmitting(true);
+
+      window.fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+        body: collectPayload().toString()
+      })
+        .then(function (res) {
+          // The endpoint always answers JSON. If parsing fails (e.g. the PHP
+          // was served as a static file on a host without PHP, or an HTML error
+          // page came back), treat it as a failure — never a false success.
+          return res.json().then(
+            function (data) { return data; },
+            function () { return null; }
+          );
+        })
+        .then(function (result) {
+          if (result && result.ok) {
+            showSuccess();
+          } else {
+            setSubmitting(false);
+            showFormError((result && result.error) || MSG_NETWORK);
+          }
+        })
+        .catch(function () {
+          setSubmitting(false);
+          showFormError(MSG_NETWORK);
+        });
+    }
+
+    // --- Submit handler ----------------------------------------------------
     form.addEventListener('submit', function (event) {
       event.preventDefault();
 
@@ -426,10 +526,7 @@
         return;
       }
 
-      // TODO: backend — POST to endpoint with DSGVO double-opt-in (see CLAUDE.md §6).
-      // No network call in this demo.
-
-      showSuccess();
+      sendForm();
     });
   })();
 })();
